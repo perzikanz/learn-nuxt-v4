@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue"
-const todoList = ref<null | { id: number; text: string }[]>(null)
+const todoList = ref<{ id: number; text: string }[]>([])
 
 const handleSubmit = (text: string) => {
   const todo = { id: Date.now(), text }
-  if (todoList.value) {
-    todoList.value.push(todo)
-    return
-  }
+  todoList.value.push(todo)
+}
 
-  todoList.value = [todo]
+const handleClick = (id: number) => {
+  todoList.value = todoList.value!.filter((item) => item.id !== id)
 }
 </script>
 
@@ -17,11 +16,11 @@ const handleSubmit = (text: string) => {
   <div class="container">
     <h1 class="title">TODO List</h1>
     <AddTodo @on-submit="handleSubmit" />
-    <ul v-if="todoList">
-      <li v-for="item in todoList" :key="item.id">
-        {{ item.text }}
-      </li>
-    </ul>
+    <TodoList
+      v-if="0 < todoList.length"
+      :todo-list="todoList"
+      @on-click="handleClick"
+    />
   </div>
 </template>
 
