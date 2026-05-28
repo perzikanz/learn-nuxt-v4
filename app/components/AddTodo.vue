@@ -16,7 +16,7 @@ const handleSubmit = () => {
 <template>
   <div class="inputContainer">
     <input v-model="text" name="text" class="textInput" />
-    <button @click="handleSubmit" class="addButton">add todo</button>
+    <button @click="handleSubmit" class="addButton">追加</button>
   </div>
 </template>
 
