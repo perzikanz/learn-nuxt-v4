@@ -6,12 +6,17 @@ const emit = defineEmits<{
 }>()
 
 const text = ref("")
+
+const handleSubmit = () => {
+  emit("onSubmit", text.value)
+  text.value = ""
+}
 </script>
 
 <template>
   <div class="inputContainer">
     <input v-model="text" name="text" class="textInput" />
-    <button @click="emit('onSubmit', text)" class="addButton">add todo</button>
+    <button @click="handleSubmit" class="addButton">add todo</button>
   </div>
 </template>
 
