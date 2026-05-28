@@ -35,11 +35,12 @@ const handleSubmit = () => {
 .addButton {
   width: 120px;
   background: lightseagreen;
-  color: #fff;
-  border: none;
+  color: white;
+  border: 2px solid lightseagreen;
   border-radius: 8px;
   &:hover {
-    opacity: 0.8;
+    background: white;
+    color: lightseagreen;
   }
 }
 </style>
