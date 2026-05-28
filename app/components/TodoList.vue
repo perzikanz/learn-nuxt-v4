@@ -35,7 +35,8 @@ const emit = defineEmits<{
 
 .doneButton {
   background: none;
-  border: 1px solid lightseagreen;
+  color: lightseagreen;
+  border: 2px solid lightseagreen;
   border-radius: 8px;
   height: 100%;
   aspect-ratio: 1 / 1;

@@ -6,12 +6,17 @@ const emit = defineEmits<{
 }>()
 
 const text = ref("")
+
+const handleSubmit = () => {
+  emit("onSubmit", text.value)
+  text.value = ""
+}
 </script>
 
 <template>
   <div class="inputContainer">
     <input v-model="text" name="text" class="textInput" />
-    <button @click="emit('onSubmit', text)" class="addButton">add todo</button>
+    <button @click="handleSubmit" class="addButton">追加</button>
   </div>
 </template>
 
@@ -30,11 +35,12 @@ const text = ref("")
 .addButton {
   width: 120px;
   background: lightseagreen;
-  color: #fff;
-  border: none;
+  color: white;
+  border: 2px solid lightseagreen;
   border-radius: 8px;
   &:hover {
-    opacity: 0.8;
+    background: white;
+    color: lightseagreen;
   }
 }
 </style>
